@@ -1,0 +1,270 @@
+#include <cstdlib>
+#include <iostream>
+#include <locale.h>
+#include <windows.h>
+using namespace std;
+
+int main(int argc, char *argv[])
+{
+    setlocale(LC_ALL, "Portuguese");
+    int areamedia();
+    int mediaavaliacoes();
+    int parimpar();
+    int salario();
+    void comprarProduto();
+    int temperatura();
+    int semaforo();
+    int numeroPar();
+    int tabuada();
+
+    int escolha;
+
+    do
+    {
+        std::cout << "----- Menu -----\n";
+        std::cout << "1. Calcular a área de um terreno\n";
+        std::cout << "2. Calcular a média entre 3 avaliações\n";
+        std::cout << "3. Verificar se um número e par ou impar\n";
+        std::cout << "4. Calcular o salário líquido com base no INSS\n";
+        std::cout << "5. Compra de produtos de informática\n";
+        std::cout << "6. Converter de centígrados para Fahrenheit\n";
+        std::cout << "7. Ações do semáforo\n";
+        std::cout << "8. Imprimir números pares de 0 a 100 e calcular a soma\n";
+        std::cout << "9. Imprimir a tabuada de um número\n";
+        std::cout << "0. Sair\n";
+
+        std::cout << "Escolha uma opção (0-9): ";
+        std::cin >> escolha;
+
+        switch (escolha)
+        {
+        case 1:
+        {
+            areamedia();
+            break;
+        }
+        case 2:
+        {
+            mediaavaliacoes();
+            break;
+        }
+        case 3:
+        {
+            parimpar();
+            break;
+        }
+        case 4:
+        {
+            salario();
+            break;
+        }
+        case 5:
+        {
+            comprarProduto();
+            break;
+        }
+        case 6:
+        {
+            temperatura();
+            break;
+        }
+        case 7:
+        {
+            semaforo();
+            break;
+        }
+        case 8:
+        {
+            numeroPar();
+            break;
+        }
+        case 9:
+        {
+            tabuada();
+            break;
+        }
+        case 0:
+        {
+            std::cout << "Saindo do programa.\n";
+            break;
+        }
+        default:
+        {
+            std::cout << "Opcao inválida. Tente novamente.\n";
+            break;
+        }
+        }
+
+    } while (escolha != 0);
+
+    return 0;
+}
+
+int areamedia()
+{
+    double comprimento, largura;
+
+    std::cout << "Informe o comprimento do terreno (em metros): ";
+    std::cin >> comprimento;
+
+    std::cout << "Informe a largura do terreno (em metros): ";
+    std::cin >> largura;
+
+    double area = comprimento * largura;
+
+    std::cout << "A área do terreno é: " << area << " metros quadrados." << std::endl;
+
+    system("pause");
+}
+
+int mediaavaliacoes()
+{
+    float x1 = 0, x2 = 0, x3 = 0, m = 0;
+    std::cout << "INFORMA AV1: ";
+    std::cin >> x1;
+    std::cout << "INFORMA AV2: ";
+    std::cin >> x2;
+    std::cout << "INFORMA AV3: ";
+    std::cin >> x3;
+    m = ((x1 + x2 + x3) / 3);
+    std::cout << "MEDIA = " << m << "\n";
+    if (m < 6.0)
+        std::cout << "Reprovado \n";
+    else
+        std::cout << "Aprovado \n";
+    system("pause");
+    return 0;
+}
+
+int parimpar()
+{
+
+    int numero;
+
+    std::cout << "Digite um número inteiro: ";
+    std::cin >> numero;
+
+    if (numero % 2 == 0)
+    {
+        std::cout << numero << " é um número par." << std::endl;
+    }
+    else
+    {
+        std::cout << numero << " é um número ímpar." << std::endl;
+    }
+}
+
+int salario()
+{
+    double valorHora, horasTrabalhadas, salarioBruto, inss, salarioLiquido;
+
+    std::cout << "Informe o valor da hora trabalhada: ";
+    std::cin >> valorHora;
+
+    std::cout << "Informe a quantidade de horas trabalhadas: ";
+    std::cin >> horasTrabalhadas;
+
+    salarioBruto = valorHora * horasTrabalhadas;
+
+    if (salarioBruto <= 1320)
+    {
+        inss = 0.075 * salarioBruto;
+    }
+    else if (salarioBruto <= 2571.29)
+    {
+        inss = 0.09 * salarioBruto;
+    }
+    else if (salarioBruto <= 3856.94)
+    {
+        inss = 0.12 * salarioBruto;
+    }
+    else if (salarioBruto <= 7507.49)
+    {
+        inss = 0.14 * salarioBruto;
+    }
+    else
+    {
+        inss = 876, 95;
+    }
+
+    salarioLiquido = salarioBruto - inss;
+
+    std::cout << "Salário Bruto: R$ " << salarioBruto << endl;
+    std::cout << "INSS: R$ " << inss << endl;
+    std::cout << "Salário Líquido: R$ " << salarioLiquido << endl;
+}
+void comprarProduto()
+{
+    int opcao;
+
+    std::cout << "1.Celular - R$ 899,99\n";
+    std::cout << "2.Computador - 1999,99.\n";
+    std::cout << "3.Impressora - 599,99.\n";
+
+    std::cout << "Escolha uma opção (0-3):\n ";
+    std::cin >> opcao;
+    std::cout << "Compra efetuada com sucesso!\n";
+}
+
+int temperatura()
+{
+    double celsius, fahrenheit;
+
+    cout << "Digite a temperatura em graus Celsius: ";
+    cin >> celsius;
+
+    fahrenheit = (celsius * 9 / 5) + 32;
+
+    cout << "A temperatura em Fahrenheit é: " << fahrenheit << " graus Fahrenheit" << endl;
+}
+int semaforo()
+{
+    int selecao;
+
+    cout << "1.Sinal verde.\n2.Sinal amarelo.\n3.Sinal vermelho.\nEscolha uma opção: \n";
+    cin >> selecao;
+    if (selecao == 1)
+    {
+        cout << "Sinal verde, pode seguir ";
+    }
+    else if (selecao == 2)
+    {
+        cout << "Sinal amarelo, atenção! ";
+    }
+    else if (selecao == 3)
+    {
+        cout << "Sinal vermelho, pare. ";
+    }
+}
+int numeroPar()
+{
+    int soma = 0;
+
+    cout << "Números pares de 0 a 100:" << endl;
+
+    for (int i = 0; i <= 100; i += 2)
+    {
+        cout << i << " ";
+        soma += i;
+    }
+
+    cout << "\n\nA soma dos números pares é: " << soma << endl;
+
+    return 0;
+}
+
+int tabuada()
+{
+    int numero;
+
+    cout << "Digite um número para ver sua tabuada: ";
+    cin >> numero;
+
+    cout << "Tabuada do " << numero << ":" << endl;
+    for (int i = 1; i <= 10; ++i)
+    {
+        cout << numero << " x " << i << " = " << (numero * i) << endl;
+    }
+
+    return 0;
+}
